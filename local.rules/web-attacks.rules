@@ -21,3 +21,4 @@ alert tcp any any -> any 80 (msg:"Web-Attack [Command execution attempt]"; flow:
 
 # Local File inclusion
 alert tcp any any -> any 80 (msg:"[File Inclusion Attempt-With File traversal-1]"; flow:to_server,established;uricontent:"/?page=";nocase; pcre:"/(((\/?page=)|(\/?page%3D))((((\.)|(\%2e))+((\/)|(\%2f)))+(\w)*))/ix"; classtype:web-application-attack; sid:10000122; rev:1;)
+alert tcp any any -> any 80 (msg:"[File Inclusion Attempt-With File traversal-2]"; flow:to_server,established;uricontent:"/?page=";nocase; pcre:"/(((\/?page=)|(\/?page%3D))((((\/)|(\%2f))+((\.)|(\%2e))+((\/)|(\%2f)))+(\w)*))/ix"; classtype:web-application-attack; sid:10000123; rev:1;)
