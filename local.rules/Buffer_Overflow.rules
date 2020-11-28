@@ -1,0 +1,1 @@
+drop tcp $EXTERNAL_NET any -> $HTTP_SERVERS 3000 (msg:"WEB-CGI EFM Buffer Overflow Attempt"; flow:to_server,established; uricontent:"/form2raw.cgi"; nocase; pcre:"/\Wfrom=[^\x3b&\n]{100}/si"; reference:bugtraq,9317; classtype:web-application-attack; sid:2433; rev:3;)

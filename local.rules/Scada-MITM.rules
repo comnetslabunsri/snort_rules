@@ -1,0 +1,1 @@
+alert tcp any any -> any any (msg:"Suspicious Value CoT IEC 104 Protocol"; flow:established; content:"|68|";depth:1;pcre:"/[\S\s]{5}(?![\x2D-\x33]|[\x3A-\x40]|[\x64-\x67]|\x69|\x6B|[\x6E-\x71])/iAR"; flags: A; content:!"|06|";offset: 8; depth: 1;  classtype:bad-unknown;sid:6666617;rev:1;priority:3;)

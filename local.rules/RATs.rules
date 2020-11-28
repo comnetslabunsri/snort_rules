@@ -1,0 +1,22 @@
+#local
+drop tcp any any -> any any (msg:"ET TROJAN njrat ver 0.7d Malware CnC Callback"; flow:from_client,established; content:"|00|ll|7C 27 7C 27 7C|"; fast_pattern; content:"0.7d"; reference:md5,bbc68c34bb2dac3ae382ecf785bdb441; classtype:trojan-activity; sid:100010; rev:1;)
+
+drop tcp any any -> any any (msg:"ET TROJAN njrat ver 0.7d Malware CnC Callback (Capture)"; flow:from_client,established; content:!"GET|20|"; content:"|FF D8 FF E0 00 10 4A 46 49 46|"; fast_pattern; content:"|00|CAP|7c 27 7c 27 7c|"; reference:md5,bbc68c34bb2dac3ae382ecf785bdb441; classtype:trojan-activity; sid:100001; rev:1;)
+
+drop tcp any any -> any any (msg:"ET TROJAN njrat ver 0.7d Malware CnC Callback (Microphone)"; flow:from_client,established; content:"|00|MIC|7c 27 7c 27 7c|"; fast_pattern; reference:md5,bbc68c34bb2dac3ae382ecf785bdb441; classtype:trojan-activity; sid:100002; rev:1;)
+
+drop tcp any any -> any any (msg:"ET TROJAN njrat ver 0.7d Malware CnC Callback (Message)"; flow:from_client,established; content:"|00|MSG|7c 27 7c 27 7c|"; fast_pattern; content:"Executed As"; reference:md5,bbc68c34bb2dac3ae382ecf785bdb441; classtype:trojan-activity; sid:100003; rev:1;)
+
+drop tcp any any -> any any (msg:"ET TROJAN njrat ver 0.7d Malware CnC Callback (Remote Shell)"; flow:from_client,established; content:"|00|rs|7c 27 7c 27 7c|"; fast_pattern; reference:md5,bbc68c34bb2dac3ae382ecf785bdb441; classtype:trojan-activity; sid:100004; rev:1;)
+
+drop tcp any any -> any any (msg:"ET TROJAN njrat ver 0.7d Malware CnC Callback (Services Listing)"; flow:from_client,established; content:"|00|srv|7C 27 7C 27 7C|"; fast_pattern; reference:md5,bbc68c34bb2dac3ae382ecf785bdb441; classtype:trojan-activity; sid:100005; rev:1;)
+
+drop tcp any any -> any any (msg:"ET TROJAN njrat ver 0.7d Malware CnC Callback (Registry Listing)"; flow:from_client,established; content:"|00|RG|7C 27 7C 27 7C|"; fast_pattern; reference:md5,bbc68c34bb2dac3ae382ecf785bdb441; classtype:trojan-activity; sid:100006; rev:1;)
+
+drop tcp any any -> any any (msg:"ET TROJAN njrat ver 0.7d Malware CnC Callback (Process Listing)"; flow:from_client,established; content:"|00|proc|7C 27 7C 27 7C|"; fast_pattern; reference:md5,bbc68c34bb2dac3ae382ecf785bdb441; classtype:trojan-activity; sid:100007; rev:1;)
+
+drop tcp any any -> any any (msg:"ET TROJAN njrat ver 0.7d Malware CnC Callback (File Manager Actions)"; flow:from_client,established; content:"|00|fm|7C 27 7C 27 7C|"; fast_pattern; reference:md5,bbc68c34bb2dac3ae382ecf785bdb441; classtype:trojan-activity; sid:100008; rev:1;)
+
+drop tcp any any -> any any (msg:"ET TROJAN njrat ver 0.7d Malware CnC Callback (Keylogging)"; flow:from_client,established; content:"|00|kl|7C 27 7C 27 7C|"; fast_pattern; reference:md5,bbc68c34bb2dac3ae382ecf785bdb441; classtype:trojan-activity; sid:100009; rev:1;)
+
+drop tcp any any -> any any (msg:"ET TROJAN njrat ver 0.7d Malware CnC Callback (Remote Desktop)"; flow:from_client,established; content:"|00|scPK|7c 27 7c 27 7c|"; fast_pattern; reference:md5,bbc68c34bb2dac3ae382ecf785bdb441; classtype:trojan-activity; sid:1000011; rev:1;)
